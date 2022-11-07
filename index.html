@@ -10,13 +10,17 @@
      <!-- bootstrap  -->
      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <!-- ajout du css -->
-    <link rel="stylesheet" href="assets/style.css"> 
+    <link rel="stylesheet" href="assets/css/style.css"> 
     <title>La Manu Box</title>
 </head>
 <header>
     
 </header>
 <body>
+    <!-- bare de recherche  -->
+    <form id="auto-suggest" action="#" method="post">
+        <input type="text" class="search" name="search" value="Rechercher..." onfocus="if(this.value=='Rechercher...')this.value=''" onblur="if(this.value=='')this.value='Rechercher...'" autocomplete="off"/>
+    </form>
 
 
 
@@ -31,5 +35,6 @@
 
 </body>
 <footer>
+    <script src="./assets/script.js"></script>
     
 </footer>
