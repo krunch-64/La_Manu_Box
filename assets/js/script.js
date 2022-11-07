@@ -33,6 +33,6 @@ function calcul(longueur, largeur) {
 
 const ul = document.querySelector('ul');
 for (const furniture in furnitures) {
-    let li = `<li>${furniture}</li>`;
+    let li = `<li>${furniture} </li>`;
     ul.innerHTML = li;
 }
