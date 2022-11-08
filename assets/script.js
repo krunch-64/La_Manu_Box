@@ -10,7 +10,7 @@ window.onload = function(){
 		'you are'
 	];
 	
-	var form = document.getElementById("auto-suggest");
+	var form = document.getElementById("all-object");
 	var input = form.search;
 	
 	var list = document.createElement("ul");
