@@ -1,5 +1,5 @@
 window.onload = function(){
-	var motsClefs = [
+	let motsClefs = [
 		'maxime',
 		'rodson',
 		'K',
@@ -10,28 +10,28 @@ window.onload = function(){
 		'you are'
 	];
 	
-	var form = document.getElementById("all-object");
-	var input = form.search;
+	let form = document.getElementById("all-object");
+	let input = form.search;
 	
-	var list = document.createElement("ul");
+	let list = document.createElement("ul");
 	list.className = "suggestions";
 	list.style.display = "none";
 
 	form.appendChild(list);
 
 	input.onkeyup = function(){
-		var txt = this.value;
+		let txt = this.value;
 		if(!txt){
 			list.style.display = "none";
 		    return;
 		}
 		
-		var suggestions = 0;
-		var frag = document.createDocumentFragment();
+		let suggestions = 0;
+		let frag = document.createDocumentFragment();
 		
-		for(var i = 0, c = motsClefs.length; i < c; i++){
+		for(let i = 0, c = motsClefs.length; i < c; i++){
 			if(new RegExp("^"+txt,"i").test(motsClefs[i])){
-				var word = document.createElement("li");
+				let word = document.createElement("li");
 				frag.appendChild(word);
 				word.innerHTML = motsClefs[i].replace(new RegExp("^("+txt+")","i"),"<strong>$1</strong>");
 				word.mot = motsClefs[i];
