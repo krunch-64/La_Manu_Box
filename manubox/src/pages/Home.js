@@ -6,6 +6,7 @@ const Home = () => {
         <div>
             <h1>Bienvue sur La Manu Box</h1>
             <Navigation />
+            <p>modif</p>
         </div>
     );
 };
