@@ -1,13 +1,13 @@
 import React from 'react';
 import Navigation from '../components/Navigation';
 
+
 const Home = () => {
     return (
-        <div>
-            <h1>Bienvue sur La Manu Box</h1>
+        <React.Fragment>
+            <h1>Bienvenue sur La Manu Box</h1>
             <Navigation />
-            <p>modif</p>
-        </div>
+        </React.Fragment>
     );
 };
 
