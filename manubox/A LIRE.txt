@@ -1,5 +1,9 @@
 Pour lancer React il faut installer les node_modules (dans terminal): npm install node_modules
 
+npm install -g npm@latest (to update npm because it is sometimes buggy.)
+rm -rf node_modules (to remove the existing modules.)
+npm install (to re-install the project dependencies.)
+
 lancer React (dans terminal): npm start
 
 
