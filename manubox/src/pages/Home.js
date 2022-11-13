@@ -1,11 +1,12 @@
 import React from 'react';
 import Navigation from '../components/Navigation';
+import Header from '../components/Header';
 
 
 const Home = () => {
     return (
         <React.Fragment>
-            <h1>Bienvue sur La Manu Box</h1>
+            <Header /> 
             <Navigation />
             <p>modif</p>
         </React.Fragment>
