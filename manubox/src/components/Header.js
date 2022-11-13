@@ -3,7 +3,7 @@ import Logo from '../src/logo.svg';
 
 
 
-export default function Header({Logo}) {
+export default function Header() {
 
     // state
 
@@ -13,7 +13,7 @@ export default function Header({Logo}) {
 
     return (
         <header className="header">
-            <img id="Logo" src={Logo} />
+            <img id="Logo" src={Logo}  alt='logo'/>
         </header>
     )
 
