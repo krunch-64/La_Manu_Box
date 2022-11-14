@@ -40,7 +40,7 @@ const Form = () => {
         const objectCopy = [...objects]
 
         // manipulation sur la copie du state 
-        const objectCopyUpdate = objectCopy[id].quantity
+        const objectCopyUpdate = objectCopy[id-1].quantity
         console.log(objectCopyUpdate)
     
         

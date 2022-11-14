@@ -10,8 +10,8 @@ import './App.css';
 const App = () => {
   return (
     <BrowserRouter>
+      <Header />
       <Routes>
-        <Header />
         <Route path="/" element={<Home />} />
         <Route path="/form" element={<Form />} />
         {/* path="*" fonction si jamais l'url ne correspond à rien de céclaré au dessus  */}
