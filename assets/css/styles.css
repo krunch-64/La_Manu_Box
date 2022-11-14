@@ -1,0 +1,11 @@
+html, body {
+	width: 100%;
+	height:100%;
+  }
+  
+  body {
+	  background: linear-gradient(-45deg, #8789e4, #a85eec, #23a6d5, #00ffaa);
+	  background-size: 400% 400%;
+	  animation: gradient 5s ease infinite;
+  }
+  
