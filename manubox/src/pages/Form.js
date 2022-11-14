@@ -43,7 +43,7 @@ const Form = () => {
         const objectCopyUpdate = objectCopy[id-1].quantity
         console.log(objectCopyUpdate)
     
-        
+        // modifier mon state avec le setter 
         setObjects(objectCopyUpdate)
     }
 
