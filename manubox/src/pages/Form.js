@@ -41,18 +41,20 @@ const Form = () => {
         const objectCopy = [...objects]
 
         // manipulation sur la copie du state 
-        const objectCopyUpdate = objectCopy[id-1].quantity
-        console.log(objectCopyUpdate)
-    
+        const objectCopyUpdate = objectCopy
+        const objectCopyUpdateQuantity = objectCopy[id]
+
         // modifier mon state avec le setter 
-        setObjects(objectCopyUpdate)
+        
+        return objectCopyUpdateQuantity
     }
 
     const handleUp = (id) => {
         console.log(id)
     }
 
-
+    const Copy = [...objects]
+    console.log(Copy[0])
 
     const handleDelete = (id) => {
         
@@ -86,7 +88,7 @@ const Form = () => {
                         <li key={object.id}><button onClick={() => handleLess(objects.id)}>-</button>{object.quantity}<button onClick={() => handleUp(object.id)}>+</button>  {object.name}  <button onClick={() =>handleDelete(object.id)}>X</button></li>
                     ))}
                 </ul>
-
+                <button onClick={(event) => {handleLess(objects.id)}} >test</button>
                 <button onClick={handleSubmit} >Terminer</button>
             </form>
         </React.Fragment>      
