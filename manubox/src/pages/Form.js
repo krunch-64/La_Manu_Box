@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Navigation from '../components/Navigation';
+import Header from '../components/Header';
 
 const Form = () => {
     // state (état, données)
@@ -71,22 +72,24 @@ const Form = () => {
     }
     //affichage 
     return (
-        <form action="submit">
-            <h1>Fromulaire</h1>
-            <div>
-                <label>veuillez indiqué les objets stocker :</label>
-                <input value={nameObject} type="text" placeholder='Ajouter un object... ' onChange={handleChange}></input>
-            </div>
-            <button onClick={NextObject}>Suivant</button>
-            <ul>
-                {objects.map((object) => (
-                    <li key={object.id}><button onClick={() => handleLess(objects.id)}>-</button>{object.quantity}<button onClick={() => handleUp(object.id)}>+</button>  {object.name}  <button onClick={() =>handleDelete(object.id)}>X</button></li>
-                ))}
-            </ul>
+        <React.Fragment>
+            <Header />
+            <form action="submit">
+                <h1>Formulaire</h1>
+                <div>
+                    <label>veuillez indiquer les objets stockés : </label>
+                    <input value={nameObject} type="text" placeholder='Ajouter un objet... ' onChange={handleChange}></input>
+                </div>
+                <button onClick={NextObject}>Suivant</button>
+                <ul>
+                    {objects.map((object) => (
+                        <li key={object.id}><button onClick={() => handleLess(objects.id)}>-</button>{object.quantity}<button onClick={() => handleUp(object.id)}>+</button>  {object.name}  <button onClick={() =>handleDelete(object.id)}>X</button></li>
+                    ))}
+                </ul>
 
-            <button onClick={handleSubmit} >Terminer</button>
-        </form>
-        
+                <button onClick={handleSubmit} >Terminer</button>
+            </form>
+        </React.Fragment>      
     );
 };
 

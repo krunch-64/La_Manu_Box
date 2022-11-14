@@ -1,4 +1,12 @@
 /* --------------------------------------------------------------------
+styles généraux
+------------------------------------------------------------------- */
+
+body * {
+	font-family: 'Montserrat';
+}
+
+/* --------------------------------------------------------------------
 styles du header
 ------------------------------------------------------------------- */
 
@@ -8,10 +16,45 @@ styles du header
     background-color: #184C78;
     color: white;
     font-size: 50px;
-    font-family: 'Montserrat';
     font-weight: 200;
 }
 
+#Logo {
+	width: 200px;
+	height: 100px;
+}
+
+
+/* --------------------------------------------------------------------
+styles du home
+------------------------------------------------------------------- */
+
+#content {
+	width: 100vw;
+	display: flex;
+	justify-content: center;
+	margin-top: 50px;
+}
+
+#choose {
+	width: 350px;
+	height: 350px;
+	background-color: #cc8d1a;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 30px;
+	box-shadow: 10px 5px 5px rgb(110, 98, 98);
+}
+
+#choose:hover {
+	background-color: #184C78;
+}
+
+#choose a {
+	text-decoration: none;
+	color: white;
+}
 
 
 /* html, body {background:url(images/noise.png) left top repeat} */
