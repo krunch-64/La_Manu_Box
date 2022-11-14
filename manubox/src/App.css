@@ -6,6 +6,14 @@ body * {
 	font-family: 'Montserrat';
 }
 
+h1 {
+	font-size: 30px;
+	color: #184C78;
+	margin: 50px 0;
+	font-weight: 600;
+	text-align: center;
+}
+
 /* --------------------------------------------------------------------
 styles du header
 ------------------------------------------------------------------- */
@@ -29,7 +37,7 @@ styles du header
 styles du home
 ------------------------------------------------------------------- */
 
-#content {
+.homepage_content {
 	width: 100vw;
 	display: flex;
 	justify-content: center;
@@ -56,6 +64,24 @@ styles du home
 	color: white;
 }
 
+
 /* --------------------------------------------------------------------
-styles du formulaire
+styles du Form
 ------------------------------------------------------------------- */
+
+.form_page_content {
+	padding: 0 10%;
+}
+
+.input, .suggestion {
+	width: 200px;
+}
+
+.suggestion {
+	background-color: rgb(244, 232, 232);
+}
+
+.suggestion:hover {
+	background-color: gray;
+}
+

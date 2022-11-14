@@ -8,7 +8,7 @@ const Home = () => {
     return (
         <React.Fragment>
             <Header /> 
-            <div id="content">
+            <div className="homepage_content">
                 <div id="choose" NavLink to="/Form">
                     <NavLink to="/form">
                         <p>Louer un Box</p>
