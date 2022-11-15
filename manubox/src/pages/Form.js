@@ -12,6 +12,8 @@ const Form = () => {
 
     const [objects, setObjects] = useState([])
 
+    const suggestions = ['Frigo', 'Lit', 'Table'];
+
     //comportements
 
 
@@ -20,8 +22,7 @@ const Form = () => {
         
     }
 
-    const CreateObject = (event) => {
-        event.preventDefault()
+    const CreateObject = () => {
         
         // copie du state
         const objectsCopy = [...objects]
@@ -33,6 +34,7 @@ const Form = () => {
         // modifier le state avec le setter 
         setObjects(objectsCopy)
         setnewObject('')
+        console.log(objects);
 
     }
 
@@ -76,10 +78,14 @@ const Form = () => {
         setObjects(objectsCopyUpdate)
     }
 
-    // la fonction handleChange permet de donner en temps reel les létres écrits par l'utlisateur dans le state nameObject
-    const handleChange = (event) => {
-        setnewObject(event.target.value)
+    const handleInputEntry = (event) => {
+        event.preventDefault();
+        if(suggestions.includes(newObject)) {
+            console.log('yes');
+            CreateObject();
+        }
     }
+
     //affichage 
     return (
         <React.Fragment>
@@ -88,9 +94,9 @@ const Form = () => {
                 <h1>Formulaire</h1>
                 <div>
                     <label>veuillez indiquer les objets stockés : </label>
-                    <Autosuggest newObject={newObject} setnewObject={setnewObject} />
+                    <Autosuggest newObject={newObject} setnewObject={setnewObject} suggestions={suggestions} />
                 </div>
-                <button onClick={CreateObject}>Suivant</button>
+                <button onClick={handleInputEntry}>Suivant</button>
                 <ul>
                 {objects.map((object) => ( 
                         <li key={object.id}>

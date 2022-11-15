@@ -2,16 +2,17 @@ import React from 'react';
 import {useState, useRef} from 'react';
 
 
-export default function Autosuggest({newObject,setnewObject}) {
+export default function Autosuggest({newObject,setnewObject,suggestions}) {
 
     // state
-    const suggestions = ['Frigo', 'Lit', 'Table'];
     const [isFocused, setIsFocused] = useState(false);
     const[isHovered, setIsHovered] = useState(false);
     const [inputValue, setInputValue] = useState("");
     const inputRef = useRef();
 
     // comportements
+
+  
 
     // render
 
