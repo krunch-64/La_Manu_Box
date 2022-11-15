@@ -2,7 +2,7 @@ import React from 'react';
 import {useState, useRef} from 'react';
 
 
-export default function Autosuggest() {
+export default function Autosuggest({newObject,setnewObject}) {
 
     // state
     const suggestions = ['Frigo', 'Lit', 'Table'];
@@ -20,7 +20,7 @@ export default function Autosuggest() {
         <React.Fragment>
             
                 <input type="text" className='input'
-                 placeholder="Nom de l'objet" value={inputValue} onChange={(e) => setInputValue(e.target.value)} 
+                 placeholder="Nom de l'objet" value={newObject} onChange={(e) => setnewObject(e.target.value)} 
                  onFocus={() => setIsFocused(true)} onBlur={() => {
                     if (!isHovered) {
                         setIsFocused(false)
@@ -30,12 +30,12 @@ export default function Autosuggest() {
             {isFocused &&
                 <div onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
                 {suggestions.map((suggestion, index) => {
-                const isMatch = suggestion.toLowerCase().indexOf(inputValue.toLowerCase()) > -1;
+                const isMatch = suggestion.toLowerCase().indexOf(newObject.toLowerCase()) > -1;
                 return (
                         <div key={index}>
                             {isMatch &&
                                 <div className="suggestion" onClick={() => {
-                                    setInputValue(suggestion);
+                                    setnewObject(suggestion);
                                     // inputRef.current.focus;
                                 }}>{suggestion}</div>
                             }

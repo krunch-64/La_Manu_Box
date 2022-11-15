@@ -8,7 +8,7 @@ const Form = () => {
     // state (état, données)
     const [id, setId] = useState(0)
 
-    const [nameObject, setnameObject] = useState("");
+    const [newObject, setnewObject] = useState("");
 
     const [objects, setObjects] = useState([])
 
@@ -27,12 +27,12 @@ const Form = () => {
         const objectsCopy = [...objects]
         
         // manipulation sur la copie du state
-        const name = event.target.value;
+        const name = newObject;
         setId(id+1)
         objectsCopy.push({id: id, name: name ,quantity: 1})
         // modifier le state avec le setter 
         setObjects(objectsCopy)
-        setnameObject('')
+        setnewObject('')
 
     }
 
@@ -41,16 +41,16 @@ const Form = () => {
         // copie du state 
         const objectCopy = [...objects]
         // manipulation sur la copie du state         
-        
-
-            if (objectCopy[id]['quantity'] < 1 ) {
-                objectCopy[id]['quantity'] = objectCopy[id]['quantity'] - 1
+            if (objectCopy[id].quantity > 1 ) {
+                const value = objectCopy[id].quantity-1
+                objectCopy[id].quantity = value
+                
+                
             }
         
             // modifier mon state avec le setter   
 
-            setObjects(objectCopy) 
-            console.log(objectCopyUpdateQuantity)     
+            setObjects(objectCopy)   
     }
 
     const handleUp = (id) => {
@@ -58,11 +58,8 @@ const Form = () => {
         // copie du state 
         const objectCopy = [...objects]
 
-        // manipulation sur la copie du state 
-        // on récupere le quantité d'un object précis grace a l'id 
-        const objectCopyUpdateQuantity = objectCopy[id]['quantity']+1
-        
-        objectCopy[id]['quantity'] = objectCopyUpdateQuantity
+        // manipulation sur la copie du state         
+        objectCopy[id]['quantity'] = objectCopy[id]['quantity']+1
         // modifier mon state avec le setter   
         setObjects(objectCopy)      
     }
@@ -82,7 +79,7 @@ const Form = () => {
 
     // la fonction handleChange permet de donner en temps reel les létres écrits par l'utlisateur dans le state nameObject
     const handleChange = (event) => {
-        setnameObject(event.target.value)
+        setnewObject(event.target.value)
     }
     //affichage 
     return (
@@ -92,7 +89,7 @@ const Form = () => {
                 <h1>Formulaire</h1>
                 <div>
                     <label>veuillez indiquer les objets stockés : </label>
-                    <Autosuggest />
+                    <Autosuggest newObject={newObject} setnewObject={setnewObject} />
                 </div>
                 <button onClick={NextObject}>Suivant</button>
                 <ul>
