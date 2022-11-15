@@ -14,6 +14,13 @@ const Form = () => {
 
     const suggestions = ['Frigo', 'Lit', 'Table'];
 
+    const surfacesObject = {
+        Frigo: 2,
+        Lit: 3,
+        table: 5
+    }
+
+
     //comportements
 
 
@@ -30,10 +37,11 @@ const Form = () => {
         // manipulation sur la copie du state
         const name = newObject;
         setId(id+1)
-        objectsCopy.push({id: id, name: name ,quantity: 1})
+        const surface = surfacesObject[name];
+        objectsCopy.push({id: id, name: name ,quantity: 1, surface: surface})
         // modifier le state avec le setter 
         setObjects(objectsCopy)
-        setnewObject('')
+        setnewObject('');
         console.log(objects);
 
     }
@@ -81,7 +89,6 @@ const Form = () => {
     const handleInputEntry = (event) => {
         event.preventDefault();
         if(suggestions.includes(newObject)) {
-            console.log('yes');
             CreateObject();
         }
     }
