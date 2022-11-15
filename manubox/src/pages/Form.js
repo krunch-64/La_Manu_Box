@@ -40,18 +40,31 @@ const Form = () => {
         
         // copie du state 
         const objectCopy = [...objects]
-
-        // manipulation sur la copie du state 
-        const objectCopyUpdate = objectCopy
-        const objectCopyUpdateQuantity = objectCopy[id]
-
-        // modifier mon state avec le setter 
+        // manipulation sur la copie du state         
         
-        return objectCopyUpdateQuantity
+
+            if (objectCopy[id]['quantity'] < 1 ) {
+                objectCopy[id]['quantity'] = objectCopy[id]['quantity'] - 1
+            }
+        
+            // modifier mon state avec le setter   
+
+            setObjects(objectCopy) 
+            console.log(objectCopyUpdateQuantity)     
     }
 
     const handleUp = (id) => {
-        console.log(id)
+              
+        // copie du state 
+        const objectCopy = [...objects]
+
+        // manipulation sur la copie du state 
+        // on récupere le quantité d'un object précis grace a l'id 
+        const objectCopyUpdateQuantity = objectCopy[id]['quantity']+1
+        
+        objectCopy[id]['quantity'] = objectCopyUpdateQuantity
+        // modifier mon state avec le setter   
+        setObjects(objectCopy)      
     }
 
 
@@ -67,7 +80,7 @@ const Form = () => {
         setObjects(objectsCopyUpdate)
     }
 
-    // la fonction handleChange permet de donner en temps reel les létres écrits par l'utlisateur dans le state newObject
+    // la fonction handleChange permet de donner en temps reel les létres écrits par l'utlisateur dans le state nameObject
     const handleChange = (event) => {
         setnameObject(event.target.value)
     }
@@ -84,10 +97,14 @@ const Form = () => {
                 <button onClick={NextObject}>Suivant</button>
                 <ul>
                     {objects.map((object) => (
-                        <li key={object.id}><button onClick={() => handleLess(objects.id)}>-</button>{object.quantity}<button onClick={() => handleUp(object.id)}>+</button>  {object.name}  <button onClick={() =>handleDelete(object.id)}>X</button></li>
+                        <li key={object.id}><button onClick={(event) => {event.preventDefault() ;handleLess(objects.id)}}>-</button>{object.quantity}<button onClick={(event) => {event.preventDefault();handleUp(object.id)}}>+</button>  {object.name}  <button onClick={() =>handleDelete(object.id)}>X</button></li>
                     ))}
                 </ul>
-                <button onClick={(event) => {handleLess(objects.id)}} >test</button>
+
+                {objects.map((object) => (
+                    <button onClick={(event) => {event.preventDefault() ; handleLess(object.id)}} >test</button>
+                ))}
+                
                 <button onClick={handleSubmit} >Terminer</button>
             </form>
         </React.Fragment>      
