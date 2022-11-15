@@ -20,7 +20,7 @@ const Form = () => {
         
     }
 
-    const NextObject = (event) => {
+    const CreateObject = (event) => {
         event.preventDefault()
         
         // copie du state
@@ -40,17 +40,16 @@ const Form = () => {
         
         // copie du state 
         const objectCopy = [...objects]
+
         // manipulation sur la copie du state         
             if (objectCopy[id].quantity > 1 ) {
                 const value = objectCopy[id].quantity-1
                 objectCopy[id].quantity = value
-                
-                
             }
         
             // modifier mon state avec le setter   
 
-            setObjects(objectCopy)   
+        setObjects(objectCopy)   
     }
 
     const handleUp = (id) => {
@@ -91,16 +90,18 @@ const Form = () => {
                     <label>veuillez indiquer les objets stockés : </label>
                     <Autosuggest newObject={newObject} setnewObject={setnewObject} />
                 </div>
-                <button onClick={NextObject}>Suivant</button>
+                <button onClick={CreateObject}>Suivant</button>
                 <ul>
-                    {objects.map((object) => (
-                        <li key={object.id}><button onClick={(event) => {event.preventDefault() ;handleLess(objects.id)}}>-</button>{object.quantity}<button onClick={(event) => {event.preventDefault();handleUp(object.id)}}>+</button>  {object.name}  <button onClick={() =>handleDelete(object.id)}>X</button></li>
-                    ))}
-                </ul>
-
-                {objects.map((object) => (
-                    <button onClick={(event) => {event.preventDefault() ; handleLess(object.id)}} >test</button>
+                {objects.map((object) => ( 
+                        <li key={object.id}>
+                            <button onClick={(event) => {event.preventDefault() ; handleLess(object.id)}}>-</button>
+                                {object.quantity}
+                            <button onClick={(event) => {event.preventDefault();handleUp(object.id)}}>+</button>
+                                {object.name}  
+                            <button onClick={() =>handleDelete(object.id)}>X</button>
+                        </li>
                 ))}
+                </ul>
                 
                 <button onClick={handleSubmit} >Terminer</button>
             </form>
