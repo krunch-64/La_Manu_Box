@@ -18,7 +18,7 @@ export default function Autosuggest() {
 
     return(
         <React.Fragment>
-            <form action="">
+            
                 <input type="text" className='input'
                  placeholder="Nom de l'objet" value={inputValue} onChange={(e) => setInputValue(e.target.value)} 
                  onFocus={() => setIsFocused(true)} onBlur={() => {
@@ -26,7 +26,7 @@ export default function Autosuggest() {
                         setIsFocused(false)
                     }
                  }} ref={inputRef}></input>
-            </form>
+            
             {isFocused &&
                 <div onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
                 {suggestions.map((suggestion, index) => {

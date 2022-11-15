@@ -27,7 +27,7 @@ const Form = () => {
         const objectsCopy = [...objects]
         
         // manipulation sur la copie du state
-        const name = nameObject;
+        const name = event.target.value;
         setId(id+1)
         objectsCopy.push({id: id, name: name ,quantity: 1})
         // modifier le state avec le setter 
@@ -35,7 +35,6 @@ const Form = () => {
         setnameObject('')
 
     }
-
 
     const handleLess = (id) => {
         
@@ -55,8 +54,6 @@ const Form = () => {
         console.log(id)
     }
 
-    const Copy = [...objects]
-    console.log(Copy[0])
 
     const handleDelete = (id) => {
         
@@ -82,7 +79,7 @@ const Form = () => {
                 <h1>Formulaire</h1>
                 <div>
                     <label>veuillez indiquer les objets stockés : </label>
-                    <input value={nameObject} type="text" placeholder='Ajouter un objet... ' onChange={handleChange}></input>
+                    <Autosuggest />
                 </div>
                 <button onClick={NextObject}>Suivant</button>
                 <ul>
