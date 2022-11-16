@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Navigation from '../components/Navigation';
+import { NavLink } from 'react-router-dom';
 import Header from '../components/Header';
 import Autosuggest from '../components/Autosuggest';
 import Result from '../components/Result';
