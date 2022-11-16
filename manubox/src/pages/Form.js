@@ -118,7 +118,7 @@ const Form = () => {
         if(isExists == false && isSuggested == true) {
             CreateObject();
         }
-        else {
+        else if(isExists == true && isSuggested == true) {
             handleUp(id);
         }
     }
