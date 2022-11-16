@@ -104,8 +104,10 @@ const Form = () => {
     const handleInputEntry = (event) => {
         event.preventDefault();
         let isExists = false;
+        let isSuggested = false;
         let id = 0;
         if(suggestions.includes(newObject)) {
+            isSuggested = true;
             objects.map((object) => {
                 if(object.name == newObject) {
                     isExists = true;
@@ -113,7 +115,7 @@ const Form = () => {
                 }
             })        
         }
-        if(isExists == false) {
+        if(isExists == false && isSuggested == true) {
             CreateObject();
         }
         else {
