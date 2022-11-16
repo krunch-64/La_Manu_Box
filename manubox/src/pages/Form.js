@@ -2,10 +2,15 @@ import React, { useState } from 'react';
 import Navigation from '../components/Navigation';
 import Header from '../components/Header';
 import Autosuggest from '../components/Autosuggest';
+import Result from '../components/Result';
 
 
 const Form = () => {
+
+
     // state (état, données)
+
+
     const [id, setId] = useState(0)
 
     const [newObject, setnewObject] = useState("");
@@ -17,15 +22,27 @@ const Form = () => {
     const surfacesObject = {
         Frigo: 2,
         Lit: 3,
-        table: 5
+        Table: 5
     }
+
+
+    const [occupiedSurface, setOccupiedSurface] = useState(0);
 
 
     //comportements
 
 
     const handleSubmit = (event) => {
-        event.preventDefault()
+        event.preventDefault();
+        let total = 0;
+        objects.map((object) => {
+            const objectQuantity = object.quantity;
+            const objectSurface = object.surface;
+            parseFloat(objectSurface);
+            total += (objectSurface * objectQuantity);
+        })
+        setOccupiedSurface(total);
+        console.log(occupiedSurface);
         
     }
 
@@ -42,8 +59,6 @@ const Form = () => {
         // modifier le state avec le setter 
         setObjects(objectsCopy)
         setnewObject('');
-        console.log(objects);
-
     }
 
     const handleLess = (id) => {
@@ -52,12 +67,12 @@ const Form = () => {
         const objectCopy = [...objects]
 
         // manipulation sur la copie du state         
-            if (objectCopy[id].quantity > 1 ) {
-                const value = objectCopy[id].quantity-1
-                objectCopy[id].quantity = value
-            }
+        if (objectCopy[id].quantity > 1 ) {
+            const value = objectCopy[id].quantity-1
+            objectCopy[id].quantity = value
+        }
         
-            // modifier mon state avec le setter   
+        // modifier mon state avec le setter   
 
         setObjects(objectCopy)   
     }

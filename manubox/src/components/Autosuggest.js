@@ -7,7 +7,6 @@ export default function Autosuggest({newObject,setnewObject,suggestions}) {
     // state
     const [isFocused, setIsFocused] = useState(false);
     const[isHovered, setIsHovered] = useState(false);
-    const [inputValue, setInputValue] = useState("");
     const inputRef = useRef();
 
     // comportements
