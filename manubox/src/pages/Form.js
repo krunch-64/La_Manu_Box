@@ -103,8 +103,21 @@ const Form = () => {
 
     const handleInputEntry = (event) => {
         event.preventDefault();
+        let isExists = false;
+        let id = 0;
         if(suggestions.includes(newObject)) {
+            objects.map((object) => {
+                if(object.name == newObject) {
+                    isExists = true;
+                    id = object.id;
+                }
+            })        
+        }
+        if(isExists == false) {
             CreateObject();
+        }
+        else {
+            handleUp(id);
         }
     }
 
