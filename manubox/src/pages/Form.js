@@ -132,7 +132,7 @@ const Form = () => {
         }
         else {
             push(16);
-            occupiedSurface -= 16;
+            setOccupiedSurface(occupiedSurface - 16);
             handleResult(occupiedSurface);
         }
         console.log(boxs);
