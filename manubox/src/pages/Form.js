@@ -25,6 +25,8 @@ const Form = () => {
         Table: 5
     }
 
+    const [boxs, setBoxs] = useState([]);
+
 
     const [occupiedSurface, setOccupiedSurface] = useState(0);
 
@@ -43,7 +45,7 @@ const Form = () => {
         })
         setOccupiedSurface(total);
         console.log(occupiedSurface);
-        
+        handleResult(occupiedSurface);
     }
 
     const CreateObject = () => {
@@ -124,6 +126,57 @@ const Form = () => {
         setnewObject('')
     }
 
+    const handleResult = (occupiedSurface) => {
+        if(occupiedSurface < 16) {
+            push(occupiedSurface);
+        }
+        else {
+            push(16);
+            occupiedSurface -= 16;
+            handleResult(occupiedSurface);
+        }
+        console.log(boxs);
+    }
+
+
+    const push = (surface) => {
+
+        // copie du state
+
+        const boxsCopy = [...boxs];
+
+
+        // manipulation de la copie du state
+
+        if(surface > 0) {
+            
+            let boxSize = "";
+            if (surface <= 3) {
+                boxSize = "s";
+            }
+            else if (surface <= 6) {
+                boxSize = "m";
+            }
+            else if (surface <= 10) {
+                boxSize = "l";
+            }
+            else {
+                boxSize = "xl";
+            }
+            // console.log(boxSize);
+    
+            boxsCopy.push({boxType: boxSize});
+    
+            // mise à jour du vrai state
+    
+            setBoxs(boxsCopy);
+
+
+        }
+        
+
+    }
+
     //affichage 
     return (
         <React.Fragment>
@@ -148,8 +201,9 @@ const Form = () => {
                 ))}
                 </ul>
                 
-                <button onClick={handleSubmit} >Terminer</button>
+                <button onClick={handleSubmit}>Terminer</button>
             </form>
+            <Result boxs={boxs}/>
         </React.Fragment>      
     );
 };
