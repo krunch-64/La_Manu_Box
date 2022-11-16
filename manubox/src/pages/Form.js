@@ -121,12 +121,14 @@ const Form = () => {
         else if(isExists == true && isSuggested == true) {
             handleUp(id);
         }
+        setnewObject('')
     }
 
     //affichage 
     return (
         <React.Fragment>
             <Header />
+            <Result />
             <form action="submit">
                 <h1>Formulaire</h1>
                 <div>
