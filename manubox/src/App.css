@@ -21,20 +21,14 @@ h1 {
 	width: 300px;
 	height: 110px;
 }
-.input{
-	width: 100px;
-	margin: 10px;
-	font-size: 20px;
-	padding: 12px 20px;
-	box-sizing: border-box;
 
-}
 button{
 	font-family: 'Montserrat';
 	border-radius: 15px;
 	font-size: 19px;
 	width: 10%;
 	border: 2px solid #184C78 ;
+	margin: 5px;
 
 }
 .btn1, .btn{
@@ -54,14 +48,18 @@ button{
 	color: white;
 	border-radius: 25px;
 	border: 2px solid #ffffff ;
-
-
 }
 .btn {
 	background-color: white; 
 	color: #184C78;
 	border-radius: 25px;
 	border: 2px solid #184C78 ;
+}
+.btnsup{
+	background-color: rgb(250, 10, 10); 
+	color: #ffffff;
+
+
 }
 /* .suggestion{
 	z-index: 7;
@@ -144,11 +142,20 @@ styles du Form
 .form_page_content {
 	padding: 0 10%;
 }
-
-.input, .suggestion {
-	width: 200px;
+input{
+	width: 250px;
+	margin: 10px;
+	font-size: 20px;
+	padding: 12px 20px;
 	z-index: auto;
 }
+.suggestion {
+	width: 250px;
+	font-size: 20px;
+	z-index: auto;
+}
+
+
 
 .suggestion {
 	background-color: rgb(244, 232, 232);

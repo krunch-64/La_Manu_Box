@@ -197,7 +197,7 @@ const Form = () => {
                                 {object.quantity}
                             <button onClick={(event) => {event.preventDefault();handleUp(object.id)}}>+</button>
                                 {object.name}  
-                            <button onClick={() =>handleDelete(object.id)}>X</button>
+                            <button class='btnsup' onClick={() =>handleDelete(object.id)}>X</button>
                         </li>
                 ))}
                 </ul>
