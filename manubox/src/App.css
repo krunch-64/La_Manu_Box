@@ -29,6 +29,14 @@ h1 {
 	box-sizing: border-box;
 
 }
+button{
+	font-family: 'Montserrat';
+	border-radius: 15px;
+	font-size: 19px;
+	width: 10%;
+	border: 2px solid #184C78 ;
+
+}
 .btn1, .btn{
 	margin-top: 0px;
 	font-size: 19px;
