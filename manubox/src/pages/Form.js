@@ -15,12 +15,15 @@ const Form = () => {
 
     const [objects, setObjects] = useState([])
 
-    const suggestions = ['Frigo', 'Lit', 'Table'];
+    const suggestions = ['Frigo', 'Lit', 'Table','Petit_carton','Moyen_carton','Grand_carton'];
 
     const surfacesObject = {
         Frigo: 2,
         Lit: 3,
-        Table: 5
+        Table: 5,
+        Petit_carton: 0.25,
+        Moyen_carton: 0.5,
+        Grand_carton: 1,
     }
 
     const [boxs, setBoxs] = useState([]);
@@ -30,6 +33,7 @@ const Form = () => {
 
    
     const [showForm , setShowForm] = useState(true);
+
     //comportements
 
     /**
@@ -155,9 +159,11 @@ const Form = () => {
         if (occupiedSurface > 0) {
             while(occupiedSurface > 16) {
                 let boxToPush = 'xl';
+                let boxPrice = 200;
+                
 
                 // copie du state
-                boxsCopy.push(boxToPush);
+                boxsCopy.push({boxSize: boxToPush,id:randomIntFromInterval(100,200),price:boxPrice});
                 setOccupiedSurface(occupiedSurface -= 16);
             }
             if (occupiedSurface <= 16) {
@@ -170,7 +176,9 @@ const Form = () => {
 
         setBoxs(boxsCopy);
         console.log(boxs);
-
+        if(boxs.length > 0){
+            setShowForm(false);
+        } 
     }
 
 
@@ -178,25 +186,39 @@ const Form = () => {
 
             
             let boxSize = "";
+            let boxPrice = 0;
             if (surface <= 3) {
                 boxSize = "s";
+                boxPrice = 50;
             }
             else if (surface <= 6) {
                 boxSize = "m";
+                boxPrice = 80;
             }
             else if (surface <= 10) {
                 boxSize = "l";
+                boxPrice = 140;
             }
             else {
                 boxSize = "xl";
+                boxPrice = 200;
             }
             console.log(boxSize);
-
-            boxsCopy.push(boxSize);
+            boxsCopy.push({boxSize: boxSize,id:randomIntFromInterval(0,99),price:boxPrice});
    
     }
 
+    const randomIntFromInterval = (min, max) => {
+        return Math.floor(Math.random() * (max-min + 1)+ min)
+    }
 
+    const getPriceForAllBox = () => {
+        let priceAllBox = 0 ;
+        {boxs.map((box) => {
+            priceAllBox += box.price;
+        })}
+        return priceAllBox;
+    }
     //affichage 
     return showForm ? (
         // Affichage Form
@@ -230,13 +252,21 @@ const Form = () => {
         <React.Fragment>
             <Header />
             <h1> resultat </h1>
-            <p>pour stocker  </p>
-            {/* {
-            boxs.forEach((box) => (
-                <p>{box['boxSize']}</p>
-            ))
-            } */}
-            <button onClick={() => setShowForm(true)}>retour</button>
+            <div class="result-form">
+                <p>pour tous stocker il vous faudras {boxs.length} box(s) : </p>
+                {
+                boxs.map((box) => (
+                    <span key={box.id}>{box.boxSize}</span>
+                ))
+                }
+                <div class="down-of-result">
+                    <button onClick={() => setShowForm(true)} class="btn">retour</button>
+                    <span>prix : {getPriceForAllBox()} €</span>
+                    <button class="btn">commander</button>
+                </div>
+                
+            </div>
+            
         </React.Fragment>
     )
 };
