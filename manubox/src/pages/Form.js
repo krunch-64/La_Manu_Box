@@ -240,17 +240,20 @@ const Form = () => {
                 </div>
                 <ul>
                 {objects.map((object) => ( 
-                        <li key={object.id}>
-                            <button onClick={(event) => {event.preventDefault() ; handleLess(object.id)}}>-</button>
+                        <li className="quantity-li" key={object.id}>
+                            <button  className='btn-quantity' onClick={(event) => {event.preventDefault() ; handleLess(object.id)}}>  -  </button>
                                 {object.quantity}
-                            <button onClick={(event) => {event.preventDefault();handleUp(object.id)}}>+</button>
+                            <button  className='btn-quantity'onClick={(event) => {event.preventDefault();handleUp(object.id)}}>  +  </button>
                                 {object.name}  
-                            <button className='btnsup' onClick={() =>handleDelete(object.id)}>X</button>
+                            <button className='btnsup' onClick={() =>handleDelete(object.id)}>  x  </button>
                         </li>
                 ))}
                 </ul>
-                <button className='btn1' onClick={handleInputEntry}>Suivant</button>     
-                <button className='btn' onClick={handleSubmit}>Terminer</button>
+                <div className='buttons'>
+                    <button className='btn1' onClick={handleInputEntry}>Suivant</button>     
+                    <button className='btn' onClick={handleSubmit}>Terminer</button>
+                </div>
+             
             </form>
         </React.Fragment>      
     ) : (
