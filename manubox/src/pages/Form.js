@@ -252,10 +252,10 @@ const Form = () => {
         // Affichage Result
         <React.Fragment>
             <Header />
-            <h1> resultat </h1>
-            <div class="result-form">
-                <p class="title-result">pour tous stocker il vous faudras {boxs.length} box(s) : </p>
-                <div class="list-result">
+            <h1> Estimation </h1>
+            <div class="result">
+                <p class="title-result">Pour tout stocker, il vous faudra {boxs.length} box(s) : </p>
+                <div class="boxs_container">
                     {
                     boxs.map((box) => (
                         <div class="box" key={box.id}>{box.boxSize}</div>
@@ -263,10 +263,10 @@ const Form = () => {
                     ))
                     }
                 </div>
+                <p>Prix : {getPriceForAllBox()} € / mois</p>
                 <div class="down-of-result">
-                    <Button text="Retour" onClick={() => setShowForm(true)}/>
-                    <span>prix : {getPriceForAllBox()} €</span>
-                    <Button text="Commander" />
+                    <Button  className="btn" text="Retour" event={setShowForm}/>
+                    <Button text="Commander" className="btn1" />
                 </div>
                 
             </div>

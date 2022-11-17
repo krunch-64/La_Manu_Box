@@ -6,6 +6,10 @@ body * {
 	font-family: 'Montserrat';
 }
 
+p {
+	margin: 30px 0;
+}
+
 h1 {
 	font-size: 30px;
 	color: #184C78;
@@ -39,7 +43,7 @@ button{
 	transition-duration: 0.4s;
 	margin: 10px;
 	transform: scale(1.05) translateY(.125rem);
-	width: 100%;
+	width: 250px;
 	height: 50px;
 	
 }
@@ -200,24 +204,40 @@ input:focus {
 	background-color: gray;
 }
 
+
+
+
+/* --------------------------------------------------------------------
+styles du result
+------------------------------------------------------------------- */
+
+
 .title-result {
-	text-align: center;
 	font-size: 20px;
 }
 
-.result-form {
-	display: grid;
-	justify-content: center;
+.result {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
 	margin-top: 50px;
+	width: 80vw;
+	position: absolute;
+	right: 50%;
+	transform: translate(50%);
 }
 
-.list-result {
+.boxs_container {
+	height: auto;
+	padding: 20px;
 	display: flex;
-	width: 540px;
-	align-items: start;
-	justify-content: space-between;
+	justify-content: space-around;
+	column-gap: 30px;
+	row-gap: 30px;
 	flex-wrap: wrap;
 }
+
 
 .box {
 	display: flex;
@@ -231,7 +251,9 @@ input:focus {
 }
 
 .down-of-result {
+	width: 80%;
 	display: flex;
-	justify-content: space-between;
+	justify-content: space-around;
+	flex-wrap: wrap;
 	align-items: center;
 }
