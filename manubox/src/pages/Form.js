@@ -231,7 +231,7 @@ const Form = () => {
         // Affichage Form
         <React.Fragment>
             <Header />
-            <h1>Formulaire</h1>
+            <h1>Nous estimons pour vous la formule de location adaptée à vos besoins !</h1>
             <form className='formulaire' action="submit">
                 
                 <div className='form_container'>

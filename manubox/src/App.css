@@ -245,7 +245,8 @@ styles du result
 
 .title-result {
 	font-size: 20px;
-	color:#184C78
+	color:#184C78;
+	text-align: center;
 }
 
 .result {
