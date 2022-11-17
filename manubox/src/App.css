@@ -13,6 +13,51 @@ h1 {
 	font-weight: 600;
 	text-align: center;
 }
+.formulaire{
+	font-size: 20px;
+	margin: 0 auto;
+	margin-top: 100px;
+	text-align: center;
+	width: 300px;
+	height: 110px;
+}
+.input{
+	width: 100px;
+	margin: 10px;
+	font-size: 20px;
+	padding: 12px 20px;
+	box-sizing: border-box;
+
+}
+.btn1, .btn{
+	margin-top: 0px;
+	font-size: 19px;
+	padding: 5px;
+	font-family: 'Montserrat';
+	transition-duration: 0.4s;
+	margin: 10px;
+	transform: scale(1.05) translateY(.125rem);
+	width: 100%;
+	height: 50px;
+	
+}
+.btn1 {
+	background-color:#184C78;
+	color: white;
+	border-radius: 25px;
+	border: 2px solid #ffffff ;
+
+
+}
+.btn {
+	background-color: white; 
+	color: #184C78;
+	border-radius: 25px;
+	border: 2px solid #184C78 ;
+}
+/* .suggestion{
+	z-index: 7;
+} */
 
 /* --------------------------------------------------------------------
 styles du header
@@ -42,6 +87,25 @@ styles du home
 	display: flex;
 	justify-content: center;
 	margin-top: 50px;
+}
+/* petite annimation */
+@keyframes bounceIn {
+	0% {
+	  transform: scale(0.1);
+	  opacity: 0;
+	}
+	60% {
+	  transform: scale(1.2);
+	  opacity: 1;
+	}
+	100% {
+	  transform: scale(1);
+	}
+  }
+  /* apl de l'annimation  */
+.homepage_content{
+	animation: bounceIn 2s;
+	  
 }
 
 #choose {
@@ -75,6 +139,7 @@ styles du Form
 
 .input, .suggestion {
 	width: 200px;
+	z-index: auto;
 }
 
 .suggestion {

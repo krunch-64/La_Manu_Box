@@ -164,7 +164,7 @@ const Form = () => {
                 boxSize = "xl";
             }
             // console.log(boxSize);
-    
+
             boxsCopy.push({boxType: boxSize});
     
             // mise à jour du vrai state
@@ -182,13 +182,14 @@ const Form = () => {
         <React.Fragment>
             <Header />
             <Result />
-            <form action="submit">
-                <h1>Formulaire</h1>
+            <h1>Formulaire</h1>
+            <form class='formulaire' action="submit">
+                
                 <div>
                     <label>veuillez indiquer les objets stockés : </label>
                     <Autosuggest newObject={newObject} setnewObject={setnewObject} suggestions={suggestions} />
                 </div>
-                <button onClick={handleInputEntry}>Suivant</button>
+                <button class='btn1' onClick={handleInputEntry}>Suivant</button>
                 <ul>
                 {objects.map((object) => ( 
                         <li key={object.id}>
@@ -201,7 +202,7 @@ const Form = () => {
                 ))}
                 </ul>
                 
-                <button onClick={handleSubmit}>Terminer</button>
+                <button class='btn' onClick={handleSubmit}>Terminer</button>
             </form>
             <Result boxs={boxs}/>
         </React.Fragment>      
