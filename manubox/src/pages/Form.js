@@ -1,15 +1,13 @@
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
 import Header from '../components/Header';
 import Autosuggest from '../components/Autosuggest';
-import Result from '../components/Result';
+
 
 
 const Form = () => {
 
 
     // state (état, données)
-
 
     const [id, setId] = useState(0)
 
@@ -30,10 +28,14 @@ const Form = () => {
 
     const [occupiedSurface, setOccupiedSurface] = useState(0);
 
-
+   
+    const [showForm , setShowForm] = useState(true);
     //comportements
 
-
+    /**
+     * handleSubmit permet de calculer la surface total
+     * @param {event} event 
+     */
     const handleSubmit = (event) => {
         event.preventDefault();
         let total = 0;
@@ -48,6 +50,9 @@ const Form = () => {
         handleResult(occupiedSurface);
     }
 
+    /**
+     * CreateObject permet d'ajouté un object dans le tableaux objects
+     */
     const CreateObject = () => {
         
         // copie du state
@@ -63,6 +68,10 @@ const Form = () => {
         setnewObject('');
     }
 
+    /**
+     * handleLess permet de diminuer la quantité de l'object cliqué 
+     * @param {int} id 
+     */
     const handleLess = (id) => {
         
         // copie du state 
@@ -79,6 +88,10 @@ const Form = () => {
         setObjects(objectCopy)   
     }
 
+    /**
+     * handleUp permet d'augmenté la quantité de l'object cliqué 
+     * @param {int} id 
+     */
     const handleUp = (id) => {
               
         // copie du state 
@@ -90,7 +103,10 @@ const Form = () => {
         setObjects(objectCopy)      
     }
 
-
+    /**
+     * handleDelete permet de suprimé l'object cliqué 
+     * @param {int} id 
+     */
     const handleDelete = (id) => {
         
         // copie du state 
@@ -103,6 +119,10 @@ const Form = () => {
         setObjects(objectsCopyUpdate)
     }
 
+    /**
+     * handleInputEntry permet de vérifier si un object ajouté est déja dans la liste si oui ne crée pas d'object mais on augmente la quantité
+     * @param {event} event 
+     */
     const handleInputEntry = (event) => {
         event.preventDefault();
         let isExists = false;
@@ -111,21 +131,25 @@ const Form = () => {
         if(suggestions.includes(newObject)) {
             isSuggested = true;
             objects.map((object) => {
-                if(object.name == newObject) {
+                if(object.name === newObject) {
                     isExists = true;
                     id = object.id;
                 }
             })        
         }
-        if(isExists == false && isSuggested == true) {
+        if(isExists === false && isSuggested === true) {
             CreateObject();
         }
-        else if(isExists == true && isSuggested == true) {
+        else if(isExists === true && isSuggested === true) {
             handleUp(id);
         }
         setnewObject('')
     }
 
+    /**
+     * handleResult 
+     * @param {int} occupiedSurface 
+     */
     const handleResult = (occupiedSurface) => {
         if(occupiedSurface < 16) {
             push(occupiedSurface);
@@ -136,9 +160,16 @@ const Form = () => {
             handleResult(occupiedSurface);
         }
         console.log(boxs);
+
+
+        setShowForm(false)
+        
     }
 
-
+    /**
+     * push 
+     * @param {int} surface 
+     */
     const push = (surface) => {
 
         // copie du state
@@ -171,20 +202,24 @@ const Form = () => {
     
             setBoxs(boxsCopy);
 
-
         }
-        
-
     }
 
+    
     //affichage 
-    return (
+    return showForm ? (
+        // Affichage Form
         <React.Fragment>
             <Header />
+<<<<<<< Updated upstream
             <Result />
             <h1>Formulaire</h1>
             <form class='formulaire' action="submit">
                 
+=======
+            <form action="submit">
+                <h1>Formulaire</h1>
+>>>>>>> Stashed changes
                 <div>
                     <label>veuillez indiquer les objets stockés : </label>
                     <Autosuggest newObject={newObject} setnewObject={setnewObject} suggestions={suggestions} />
@@ -204,9 +239,21 @@ const Form = () => {
                 
                 <button class='btn' onClick={handleSubmit}>Terminer</button>
             </form>
-            <Result boxs={boxs}/>
         </React.Fragment>      
-    );
+    ) : (
+        // Affichage Result
+        <React.Fragment>
+            <Header />
+            <h1> resultat </h1>
+            <p>pour stocker  </p>
+            {/* {
+            boxs.forEach((box) => (
+                <p>{box['boxSize']}</p>
+            ))
+            } */}
+            <button onClick={() => setShowForm(true)}>retour</button>
+        </React.Fragment>
+    )
 };
 
 export default Form;
