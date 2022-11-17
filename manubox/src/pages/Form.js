@@ -228,7 +228,7 @@ const Form = () => {
             <h1>Formulaire</h1>
             <form class='formulaire' action="submit">
                 
-                <div>
+                <div className='form_container'>
                     <label>veuillez indiquer les objets stockés : </label>
                     <Autosuggest newObject={newObject} setnewObject={setnewObject} suggestions={suggestions} />
                 </div>

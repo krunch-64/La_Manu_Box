@@ -25,21 +25,20 @@ export default function Autosuggest({newObject,setnewObject,suggestions}) {
                     if (!isHovered) {
                         setIsFocused(false)
                     }
-                 }} ref={inputRef}></input>
+                 }}></input>
             
             {isFocused &&
-                <div onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
+                <div className="suggestions" onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
                 {suggestions.map((suggestion, index) => {
                 const isMatch = suggestion.toLowerCase().indexOf(newObject.toLowerCase()) > -1;
                 return (
-                        <div key={index}>
+                        <React.Fragment key={index}>
                             {isMatch &&
                                 <div className="suggestion" onClick={() => {
                                     setnewObject(suggestion);
-                                    // inputRef.current.focus;
                                 }}>{suggestion}</div>
                             }
-                        </div>
+                        </React.Fragment>
                 )
                 })}
                 </div>
