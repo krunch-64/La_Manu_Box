@@ -6,12 +6,72 @@ body * {
 	font-family: 'Montserrat';
 }
 
+h1 {
+	font-size: 30px;
+	color: #184C78;
+	margin: 50px 0;
+	font-weight: 600;
+	text-align: center;
+}
+.formulaire{
+	font-size: 20px;
+	margin: 0 auto;
+	margin-top: 100px;
+	text-align: center;
+	width: 300px;
+	height: 110px;
+}
+
+button{
+	font-family: 'Montserrat';
+	border-radius: 15px;
+	font-size: 19px;
+	width: 10%;
+	border: 2px solid #184C78 ;
+	margin: 5px;
+
+}
+.btn1, .btn{
+	margin-top: 0px;
+	font-size: 19px;
+	padding: 5px;
+	font-family: 'Montserrat';
+	transition-duration: 0.4s;
+	margin: 10px;
+	transform: scale(1.05) translateY(.125rem);
+	width: 100%;
+	height: 50px;
+	
+}
+.btn1 {
+	background-color:#184C78;
+	color: white;
+	border-radius: 25px;
+	border: 2px solid #ffffff ;
+}
+.btn {
+	background-color: white; 
+	color: #184C78;
+	border-radius: 25px;
+	border: 2px solid #184C78 ;
+}
+.btnsup{
+	background-color: rgb(250, 10, 10); 
+	color: #ffffff;
+
+
+}
+/* .suggestion{
+	z-index: 7;
+} */
+
 /* --------------------------------------------------------------------
 styles du header
 ------------------------------------------------------------------- */
 
 .header {
     width: 100vw;
+
     height: 100px;
     background-color: #184C78;
     color: white;
@@ -24,23 +84,35 @@ styles du header
 	height: 100px;
 }
 
-h1 {
-	font-size: 30px;
-	color: #184C78;
-	margin: 50px 0;
-	font-weight: 600;
-	text-align: center;
-}
 
 /* --------------------------------------------------------------------
 styles du home
 ------------------------------------------------------------------- */
 
-#content {
+.homepage_content {
 	width: 100vw;
 	display: flex;
 	justify-content: center;
 	margin-top: 50px;
+}
+/* petite annimation */
+@keyframes bounceIn {
+	0% {
+	  transform: scale(0.1);
+	  opacity: 0;
+	}
+	60% {
+	  transform: scale(1.2);
+	  opacity: 1;
+	}
+	100% {
+	  transform: scale(1);
+	}
+  }
+  /* apl de l'annimation  */
+.homepage_content{
+	animation: bounceIn 2s;
+	  
 }
 
 #choose {
@@ -63,36 +135,14 @@ styles du home
 	color: white;
 }
 
-button{
-	font-family: 'Montserrat';
-	border-radius: 15px;
-	font-size: 19px;
-	width: 10%;
-	border: 2px solid #184C78 ;
-	margin: 5px;
 
-}
 /* --------------------------------------------------------------------
-styles du formulaire
+styles du Form
 ------------------------------------------------------------------- */
 
-.result-form {
-	display: flex;
-	justify-content: center;
-	margin-top: 50px;
+.form_page_content {
+	padding: 0 10%;
 }
-
-
-
-.formulaire{
-	font-size: 20px;
-	margin: 0 auto;
-	margin-top: 100px;
-	text-align: center;
-	width: 300px;
-	height: 110px;
-}
-
 input{
 	width: 250px;
 	margin: 10px;
@@ -100,46 +150,19 @@ input{
 	padding: 12px 20px;
 	z-index: auto;
 }
-
 .suggestion {
 	width: 250px;
 	font-size: 20px;
+	z-index: auto;
+}
+
+
+
+.suggestion {
 	background-color: rgb(244, 232, 232);
 }
 
-.btn1, .btn{
-	margin-top: 0px;
-	font-size: 19px;
-	padding: 5px;
-	font-family: 'Montserrat';
-	transition-duration: 0.4s;
-	margin: 10px;
-	transform: scale(1.05) translateY(.125rem);
-	width: 100%;
-	height: 50px;
-	
-}
-.btn1 {
-	background-color:#184C78;
-	color: white;
-	border-radius: 25px;
-	border: 2px solid #ffffff ;
-
-
-}
-.btn {
-	background-color: white; 
-	color: #184C78;
-	border-radius: 25px;
-	border: 2px solid #184C78 ;
+.suggestion:hover {
+	background-color: gray;
 }
 
-.btnsup{
-	background-color: rgb(250, 10, 10); 
-	color: #ffffff;
-}
-
-.down-of-result {
-	display: flex;
-	
-}

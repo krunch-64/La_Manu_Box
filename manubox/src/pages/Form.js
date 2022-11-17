@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Header from '../components/Header';
 import Autosuggest from '../components/Autosuggest';
+import Button from '../components/Button';
 
 
 
@@ -260,9 +261,9 @@ const Form = () => {
                 ))
                 }
                 <div class="down-of-result">
-                    <button onClick={() => setShowForm(true)} class="btn">retour</button>
+                    <Button text="Retour" onClick={() => setShowForm(true)}/>
                     <span>prix : {getPriceForAllBox()} €</span>
-                    <button class="btn">commander</button>
+                    <Button text="Commander" />
                 </div>
                 
             </div>
