@@ -159,7 +159,7 @@ const Form = () => {
     const handleResult = (occupiedSurface) => {
         if (occupiedSurface > 0) {
             while(occupiedSurface > 16) {
-                let boxToPush = 'xl';
+                let boxToPush = 'XL';
                 let boxPrice = 200;
                 
 
@@ -189,19 +189,19 @@ const Form = () => {
             let boxSize = "";
             let boxPrice = 0;
             if (surface <= 3) {
-                boxSize = "s";
+                boxSize = "S";
                 boxPrice = 50;
             }
             else if (surface <= 6) {
-                boxSize = "m";
+                boxSize = "M";
                 boxPrice = 80;
             }
             else if (surface <= 10) {
-                boxSize = "l";
+                boxSize = "L";
                 boxPrice = 140;
             }
             else {
-                boxSize = "xl";
+                boxSize = "XL";
                 boxPrice = 200;
             }
             console.log(boxSize);
@@ -254,12 +254,15 @@ const Form = () => {
             <Header />
             <h1> resultat </h1>
             <div class="result-form">
-                <p>pour tous stocker il vous faudras {boxs.length} box(s) : </p>
-                {
-                boxs.map((box) => (
-                    <span key={box.id}>{box.boxSize}</span>
-                ))
-                }
+                <p class="title-result">pour tous stocker il vous faudras {boxs.length} box(s) : </p>
+                <div class="list-result">
+                    {
+                    boxs.map((box) => (
+                        <div class="box" key={box.id}>{box.boxSize}</div>
+
+                    ))
+                    }
+                </div>
                 <div class="down-of-result">
                     <Button text="Retour" onClick={() => setShowForm(true)}/>
                     <span>prix : {getPriceForAllBox()} €</span>
