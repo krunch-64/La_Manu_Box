@@ -2,7 +2,6 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Form from "./pages/Form";
-import Header from "./components/Header";
 import './Reset.css';
 import './App.css';
 
