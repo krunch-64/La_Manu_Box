@@ -220,19 +220,24 @@ const Form = () => {
         })}
         return priceAllBox;
     }
+
+    const restart = () => {
+        setBoxs([]);
+        setShowForm(true);
+    }
+
     //affichage 
     return showForm ? (
         // Affichage Form
         <React.Fragment>
             <Header />
             <h1>Formulaire</h1>
-            <form class='formulaire' action="submit">
+            <form className='formulaire' action="submit">
                 
                 <div className='form_container'>
-                    <label>veuillez indiquer les objets stockés : </label>
+                    <label>Rentrez les objets à stocker </label>
                     <Autosuggest newObject={newObject} setnewObject={setnewObject} suggestions={suggestions} />
                 </div>
-                <button class='btn1' onClick={handleInputEntry}>Suivant</button>
                 <ul>
                 {objects.map((object) => ( 
                         <li key={object.id}>
@@ -240,12 +245,12 @@ const Form = () => {
                                 {object.quantity}
                             <button onClick={(event) => {event.preventDefault();handleUp(object.id)}}>+</button>
                                 {object.name}  
-                            <button class='btnsup' onClick={() =>handleDelete(object.id)}>X</button>
+                            <button className='btnsup' onClick={() =>handleDelete(object.id)}>X</button>
                         </li>
                 ))}
                 </ul>
-                
-                <button class='btn' onClick={handleSubmit}>Terminer</button>
+                <button className='btn1' onClick={handleInputEntry}>Suivant</button>     
+                <button className='btn' onClick={handleSubmit}>Terminer</button>
             </form>
         </React.Fragment>      
     ) : (
@@ -253,19 +258,19 @@ const Form = () => {
         <React.Fragment>
             <Header />
             <h1> Estimation </h1>
-            <div class="result">
-                <p class="title-result">Pour tout stocker, il vous faudra {boxs.length} box(s) : </p>
-                <div class="boxs_container">
+            <div className="result">
+                <p className="title-result">Pour tout stocker, il vous faudra {boxs.length} box(s) : </p>
+                <div className="boxs_container">
                     {
                     boxs.map((box) => (
-                        <div class="box" key={box.id}>{box.boxSize}</div>
+                        <div className="box" key={box.id}>{box.boxSize}</div>
 
                     ))
                     }
                 </div>
                 <p>Prix : {getPriceForAllBox()} € / mois</p>
                 <div class="down-of-result">
-                    <Button  className="btn" text="Retour" event={setShowForm}/>
+                    <Button  className="btn" text="Retour" event={restart}/>
                     <Button text="Commander" className="btn1" />
                 </div>
                 
