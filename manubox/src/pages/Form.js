@@ -27,7 +27,7 @@ const Form = () => {
 
     const [boxs, setBoxs] = useState([]);
 
-
+   
     const [occupiedSurface, setOccupiedSurface] = useState(0);
 
 
@@ -43,8 +43,9 @@ const Form = () => {
             parseFloat(objectSurface);
             total += (objectSurface * objectQuantity);
         })
-        setOccupiedSurface(total);
-        console.log(occupiedSurface);
+        if(boxs.length == 0) {
+            setOccupiedSurface(total);
+        }
         handleResult(occupiedSurface);
     }
 
@@ -126,29 +127,35 @@ const Form = () => {
         setnewObject('')
     }
 
+
+
+    let boxsCopy = [...boxs];
+
     const handleResult = (occupiedSurface) => {
-        if(occupiedSurface < 16) {
-            push(occupiedSurface);
+        if (occupiedSurface > 0) {
+            while(occupiedSurface > 16) {
+                let boxToPush = 'xl';
+
+                // copie du state
+                boxsCopy.push(boxToPush);
+                setOccupiedSurface(occupiedSurface -= 16);
+            }
+            if (occupiedSurface <= 16) {
+                push(occupiedSurface, boxsCopy);
+                setOccupiedSurface(occupiedSurface = 0);
+            }
         }
-        else {
-            push(16);
-            setOccupiedSurface(occupiedSurface - 16);
-            handleResult(occupiedSurface);
-        }
+        
+        // on remplace le vrai state
+
+        setBoxs(boxsCopy);
         console.log(boxs);
+
     }
 
 
-    const push = (surface) => {
+    const push = (surface, boxsCopy) => {
 
-        // copie du state
-
-        const boxsCopy = [...boxs];
-
-
-        // manipulation de la copie du state
-
-        if(surface > 0) {
             
             let boxSize = "";
             if (surface <= 3) {
@@ -163,19 +170,12 @@ const Form = () => {
             else {
                 boxSize = "xl";
             }
-            // console.log(boxSize);
-    
-            boxsCopy.push({boxType: boxSize});
-    
-            // mise à jour du vrai state
-    
-            setBoxs(boxsCopy);
+            console.log(boxSize);
 
-
-        }
-        
-
+            boxsCopy.push(boxSize);
+   
     }
+
 
     //affichage 
     return (
