@@ -202,7 +202,6 @@ const Form = () => {
         // Affichage Form
         <React.Fragment>
             <Header />
-            <Result />
             <h1>Formulaire</h1>
             <form class='formulaire' action="submit">
                 
