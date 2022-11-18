@@ -68,12 +68,23 @@ button{
 	border-radius: 25px;
 	border: 2px solid #ffffff ;
 }
+
+.btn1:hover {
+	background-color: #cc8d1a;
+}
+
 .btn {
 	background-color: white; 
 	color: #184C78;
 	border-radius: 25px;
 	border: 2px solid #184C78 ;
 }
+
+.btn:hover {
+	background-color:#184C78;
+	color: white;
+}
+
 .btnsup{
 	color: rgb(218, 64, 64); 
 }
