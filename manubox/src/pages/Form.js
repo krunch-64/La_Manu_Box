@@ -16,7 +16,7 @@ const Form = () => {
 
     const [objects, setObjects] = useState([])
 
-    const suggestions = ['Frigo', 'Lit', 'Table','carton'];
+    const suggestions = ['Frigo', 'Lit', 'Table','canapé','chaise','armoire','carton'];
 
     const surfacesObject = {
         Frigo: 1,
