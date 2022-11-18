@@ -50,7 +50,7 @@ button{
 	margin: 5px;
 
 }
-.btn1, .btn{
+.btn_primary, .btn_secondary{
 	margin-top: 0px;
 	font-size: 19px;
 	padding: 5px;
@@ -62,25 +62,25 @@ button{
 	height: 50px;
 	
 }
-.btn1 {
+.btn_primary {
 	background-color:#184C78;
 	color: white;
 	border-radius: 25px;
 	border: 2px solid #ffffff ;
 }
 
-.btn1:hover {
+.btn_primary:hover {
 	background-color: #cc8d1a;
 }
 
-.btn {
+.btn_secondary {
 	background-color: white; 
 	color: #184C78;
 	border-radius: 25px;
 	border: 2px solid #184C78 ;
 }
 
-.btn:hover {
+.btn_secondary:hover {
 	background-color:#184C78;
 	color: white;
 }

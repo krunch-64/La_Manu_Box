@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from '../components/Header';
 import Autosuggest from '../components/Autosuggest';
 import Button from '../components/Button';
+
 
 
 
@@ -175,12 +176,12 @@ const Form = () => {
         }
         
         // on remplace le vrai state
-
+        
         setBoxs(boxsCopy);
         console.log(boxs);
-        if(boxs.length > 0){
+        if(boxs.length > 0) {
             setShowForm(false);
-        } 
+        }
     }
 
 
@@ -251,14 +252,13 @@ const Form = () => {
                 ))}
                 </ul>
                 <div className='buttons'>
-                    <button className='btn1' onClick={handleInputEntry}>Suivant</button>     
-                    <button className='btn' onClick={handleSubmit}>Terminer</button>
+                    <button className='btn_primary' onClick={handleInputEntry}>Suivant</button>     
+                    <button className='btn_secondary' onClick={handleSubmit}>Terminer</button>
                 </div>
              
             </form>
         </React.Fragment>      
-    ) : (
-        // Affichage Result
+    ) : 
         <React.Fragment>
             <Header />
             <h1> Estimation </h1>
@@ -274,14 +274,13 @@ const Form = () => {
                 </div>
                 <p>Prix : {getPriceForAllBox()} € / mois</p>
                 <div class="down-of-result">
-                    <Button  className="btn" text="Retour" event={restart}/>
-                    <Button text="Commander" className="btn1" />
+                    <Button  className="btn_secondary" text="Retour" event={restart}/>
+                    <Button text="Commander" className="btn_primary" />
                 </div>
                 
             </div>
             
         </React.Fragment>
-    )
 };
 
 export default Form;
