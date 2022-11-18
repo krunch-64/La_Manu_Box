@@ -16,16 +16,16 @@ const Form = () => {
 
     const [objects, setObjects] = useState([])
 
-    const suggestions = ['Frigo', 'Lit', 'Table','canapé','chaise','armoire','carton'];
+    const suggestions = ['Frigo', 'Lit', 'Table','Canapé','Chaise','Armoire','Carton'];
 
     const surfacesObject = {
         Frigo: 1,
         Lit: 2,
         Table: 3,
-        canapé: 2,
-        chaise: 0.25,
-        armoire: 3,
-        carton: 1,
+        Canapé: 2,
+        Chaise: 0.25,
+        Armoire: 3,
+        Carton: 1,
     }
 
     const [boxs, setBoxs] = useState([]);
