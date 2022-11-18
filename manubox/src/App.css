@@ -211,6 +211,10 @@ input {
 	margin-bottom: 0px;
 }
 
+input:hover, button:hover {
+	cursor: pointer;
+}
+
 input:focus {
 	border: 1px solid #184C78;
 }
@@ -233,6 +237,7 @@ input:focus {
 
 .suggestion:hover {
 	background-color: rgb(198, 191, 191);
+	cursor: pointer;
 }
 
 
